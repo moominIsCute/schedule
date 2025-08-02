@@ -10,14 +10,13 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class ScdService {
 
-    Schedule scdcreate(ScdDto scdDto) {
-        Schedule schedule = new Schedule(
+    public Schedule scdCreate(ScdDto scdDto) {
+        return new Schedule(
                 scdDto.getTitle(),
                 scdDto.getContents(),
                 scdDto.getName(),
-                scdDto.getPassword(),
-                scdDto.getTime());
-return schedule;
+                scdDto.getPassword()
+                );
     }
 
     //인풋 값을 디티오로 변환하여 저장하기,,,,컨츠롤의 포스트와 연결

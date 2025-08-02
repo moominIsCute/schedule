@@ -22,13 +22,11 @@ public class Schedule {
     private String contents;
     private String name;
     private String password;
-    private LocalDateTime time; //DTO로 뺄 수도 있다.
 
-    public Schedule( String title, String contents, String name, String password, LocalDateTime time) {
+    public Schedule( String title, String contents, String name, String password) {
         this.title = title;
         this.contents = contents;
         this.name = name;
         this.password = password;
-        this.time = time;
     }
 }
