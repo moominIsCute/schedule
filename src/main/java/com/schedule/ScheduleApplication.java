@@ -1,13 +1,13 @@
-package com.schdule;
+package com.schedule;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SchduleApplication {
+public class ScheduleApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SchduleApplication.class, args);
+        SpringApplication.run(ScheduleApplication.class, args);
     }
 
 }

@@ -1,12 +1,11 @@
-package com.schdule.dto;
+package com.schedule.dto;
 
 import lombok.Getter;
 
 @Getter
 public class ScdPostRequestDto {
 
-    //서비스한테 받은 인풋을 엔티티형태로 변환하여 저장하기
-    private final String title;
+    private final String title;    //서비스한테 받은 인풋을 엔티티형태로 변환하여 저장하기
     private final String contents;
     private final String name;
     private final String password;

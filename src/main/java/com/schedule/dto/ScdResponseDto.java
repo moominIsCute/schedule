@@ -1,12 +1,7 @@
-package com.schdule.dto;
+package com.schedule.dto;
 
-import com.schdule.enitity.Schedule;
-import jakarta.persistence.Column;
-import jakarta.persistence.EntityListeners;
+import com.schedule.enitity.Schedule;
 import lombok.Getter;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
 
@@ -18,9 +13,9 @@ public class ScdResponseDto{
     private final String title;
     private final String contents;
     private final String name;
-    //private final String password;
-    private LocalDateTime setTime;
-    private LocalDateTime modifyTime;
+    //private final String password; 비밀번호는 반환할 필요가 없음
+    private final LocalDateTime setTime;
+    private final LocalDateTime modifyTime;
 
 
     //서비스에서 로직 실행해야함, 여기서 엔티티로 직접 넣을려고 고민했었음

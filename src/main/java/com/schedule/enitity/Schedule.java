@@ -1,4 +1,4 @@
-package com.schdule.enitity;
+package com.schedule.enitity;
 
 
 import jakarta.persistence.*;
