@@ -6,6 +6,7 @@ import com.schedule.enitity.Schedule;
 import com.schedule.repository.ScdRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,11 +25,11 @@ public class ScdService {
                 scdPostRequestDto.getName(),
                 scdPostRequestDto.getPassword()
         );
-        scdRepository.save(schedule); //디비에 저장하는 로직
+        Schedule postSch = scdRepository.save(schedule); //디비에 저장하는 로직
 
-        return new ScdResponseDto(schedule);
+        return new ScdResponseDto(postSch);
     }
-
+    @Transactional(readOnly = true)
     public List<ScdResponseDto> findAll() {
         List<Schedule> schedules = scdRepository.findAll();
         List<ScdResponseDto> scdResponseDtos = new ArrayList<>();

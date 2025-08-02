@@ -14,8 +14,8 @@ public class ScdResponseDto{
     private final String contents;
     private final String name;
     //private final String password; 비밀번호는 반환할 필요가 없음
-    private final LocalDateTime setTime;
-    private final LocalDateTime modifyTime;
+    private final LocalDateTime createAt;
+    private final LocalDateTime modifiedAt;
 
 
     //서비스에서 로직 실행해야함, 여기서 엔티티로 직접 넣을려고 고민했었음
@@ -25,7 +25,7 @@ public class ScdResponseDto{
         this.contents = schedule.getContents();
         this.name = schedule.getName();
         //this.password = schedule.getPassword();
-        this.setTime = LocalDateTime.now();
-        this.modifyTime = LocalDateTime.now();
+        this.createAt = schedule.getCreateAt();
+        this.modifiedAt = schedule.getModifiedAt();
     }
 }

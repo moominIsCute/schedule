@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Getter
 @NoArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class Schedule {
+public class Schedule extends BaseSchedule { //시간 저장을 위해 베이스스케쥴을 상속받았음
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,12 +24,6 @@ public class Schedule {
     private String name;
     private String password;
 
-    @CreatedDate
-    @Column(updatable = false)
-    private LocalDateTime setTime;
-
-    @LastModifiedDate
-    private LocalDateTime modifyTime;
 
     public Schedule( String title, String contents, String name, String password) {
         this.title = title;
