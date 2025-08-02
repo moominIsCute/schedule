@@ -23,7 +23,7 @@ public class ScdService {
         );
         scdRepository.save(schedule); //디비에 저장하는 로직
 
-        return ScdResponseDto.responseDtoCreate(schedule);
+        return new ScdResponseDto(schedule);
     }
 
     //인풋 값을 디티오로 변환하여 저장하기,,,,컨츠롤의 포스트와 연결
