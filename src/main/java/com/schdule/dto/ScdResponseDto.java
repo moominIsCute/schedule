@@ -18,7 +18,7 @@ public class ScdResponseDto{
     private final String title;
     private final String contents;
     private final String name;
-    private final String password;
+    //private final String password;
     private LocalDateTime setTime;
     private LocalDateTime modifyTime;
 
@@ -29,7 +29,7 @@ public class ScdResponseDto{
         this.title = schedule.getTitle();
         this.contents = schedule.getContents();
         this.name = schedule.getName();
-        this.password = schedule.getPassword();
+        //this.password = schedule.getPassword();
         this.setTime = LocalDateTime.now();
         this.modifyTime = LocalDateTime.now();
     }

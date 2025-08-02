@@ -26,6 +26,8 @@ public class ScdService {
         return new ScdResponseDto(schedule);
     }
 
+
+
     //인풋 값을 디티오로 변환하여 저장하기,,,,컨츠롤의 포스트와 연결
 
 }

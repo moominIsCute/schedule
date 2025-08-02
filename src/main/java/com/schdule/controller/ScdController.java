@@ -20,4 +20,6 @@ public class ScdController {
             @RequestBody ScdPostRequestDto scdPostRequestDto) {
         return ResponseEntity.status(HttpStatus.CREATED).body(scdService.scdCreate(scdPostRequestDto));
     }
+
+
 }
