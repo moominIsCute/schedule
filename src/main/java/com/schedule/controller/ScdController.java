@@ -28,5 +28,10 @@ public class ScdController {
         return ResponseEntity.status(HttpStatus.OK).body(scdService.findAll());
     }
 
+    @GetMapping("/schedule/{Name}")
+    ResponseEntity<List<ScdResponseDto>> scdFindByName(@PathVariable("Name") String name) {
+        return ResponseEntity.status(HttpStatus.OK).body(scdService.findByName(name));
+    }
+
 
 }

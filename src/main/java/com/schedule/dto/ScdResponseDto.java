@@ -6,7 +6,6 @@ import lombok.Getter;
 import java.time.LocalDateTime;
 
 @Getter
-
 public class ScdResponseDto{
 
     //서비스한테 받은 인풋을 엔티티형태로 변환하여 저장하기

@@ -39,5 +39,18 @@ public class ScdService {
         return scdResponseDtos;
     }
 
+    //스프링 스럽지 못하다는것은 알지만 내가 아는데로 풀어봤다.
+    public List<ScdResponseDto> findByName(String name) {
+        List<Schedule> schedules = scdRepository.findAll();
+        List<ScdResponseDto> scdResponseDtos = new ArrayList<>();
+        for (Schedule schedule : schedules) {
+            if (schedule.getName().equals(name)) {
+                scdResponseDtos.add(new ScdResponseDto(schedule));
+            }
+        }
+        return scdResponseDtos;
+    }
+
+
     //인풋 값을 디티오로 변환하여 저장하기,,,,컨츠롤의 포스트와 연결
 }
