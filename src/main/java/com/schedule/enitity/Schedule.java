@@ -4,11 +4,7 @@ package com.schedule.enitity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
-
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
@@ -30,5 +26,13 @@ public class Schedule extends BaseSchedule { //시간 저장을 위해 베이스
         this.contents = contents;
         this.name = name;
         this.password = password;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

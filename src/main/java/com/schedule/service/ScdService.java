@@ -1,10 +1,12 @@
 package com.schedule.service;
 
+import com.schedule.dto.ScdPatchRequestDto;
 import com.schedule.dto.ScdPostRequestDto;
 import com.schedule.dto.ScdResponseDto;
 import com.schedule.enitity.Schedule;
 import com.schedule.repository.ScdRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -51,6 +53,22 @@ public class ScdService {
         return scdResponseDtos;
     }
 
+    public ScdResponseDto update(Long id, String password,String title,String name) {
+        List<Schedule> schedules = scdRepository.findAll();
+        ScdResponseDto scdResponseDto = null;
 
-    //인풋 값을 디티오로 변환하여 저장하기,,,,컨츠롤의 포스트와 연결
+        for (Schedule schedule : schedules) {
+            if (schedule.getId().equals(id)&& schedule.getPassword().equals(password)) {
+                schedule.setTitle(title);
+                schedule.setName(name);
+                scdResponseDto =  new ScdResponseDto( scdRepository.save(schedule));
+            }
+        }
+        return scdResponseDto;
+    }
+
+
+
+
+
 }
