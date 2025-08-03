@@ -1,5 +1,6 @@
 package com.schedule.controller;
 
+import com.schedule.dto.ScdDeleteRequestDto;
 import com.schedule.dto.ScdPatchRequestDto;
 import com.schedule.dto.ScdPostRequestDto;
 import com.schedule.dto.ScdResponseDto;
@@ -34,14 +35,18 @@ public class ScdController {
     }
 
     @PatchMapping("/schedule/{id}")
-    public ResponseEntity scdUpdate(@PathVariable("id") Long id, @RequestBody ScdPatchRequestDto scdPatchRequestDto) {
+    public ResponseEntity<ScdResponseDto> scdUpdate(@PathVariable("id") Long id, @RequestBody ScdPatchRequestDto scdPatchRequestDto) {
         String password = scdPatchRequestDto.getPassword();
         String title = scdPatchRequestDto.getTitle();
         String name = scdPatchRequestDto.getName();
-        return ResponseEntity.status(HttpStatus.OK).body(scdService.update(id,password,title,name));
-
+        return ResponseEntity.status(HttpStatus.OK).body(scdService.update(id, password, title, name));
     }
 
+    @DeleteMapping("schedule/{id}/del")
+    public ResponseEntity<List<ScdResponseDto>> scddelete(@PathVariable("id") Long id, @RequestBody ScdDeleteRequestDto scdDeleteRequestDto) {
+        String password = scdDeleteRequestDto.getPassword();
+        return ResponseEntity.status(HttpStatus.OK).body(scdService.delete(id, password));
+    }
 
 
 }

@@ -31,6 +31,7 @@ public class ScdService {
 
         return new ScdResponseDto(postSch);
     }
+
     @Transactional(readOnly = true)
     public List<ScdResponseDto> findAll() {
         List<Schedule> schedules = scdRepository.findAll();
@@ -53,22 +54,31 @@ public class ScdService {
         return scdResponseDtos;
     }
 
-    public ScdResponseDto update(Long id, String password,String title,String name) {
+    public ScdResponseDto update(Long id, String password, String title, String name) {
         List<Schedule> schedules = scdRepository.findAll();
         ScdResponseDto scdResponseDto = null;
 
         for (Schedule schedule : schedules) {
-            if (schedule.getId().equals(id)&& schedule.getPassword().equals(password)) {
+            if (schedule.getId().equals(id) && schedule.getPassword().equals(password)) {
                 schedule.setTitle(title);
                 schedule.setName(name);
-                scdResponseDto =  new ScdResponseDto( scdRepository.save(schedule));
+                scdResponseDto = new ScdResponseDto(scdRepository.save(schedule));
             }
         }
         return scdResponseDto;
     }
 
-
-
-
+    public List<ScdResponseDto> delete(Long id, String password) {
+        List<Schedule> schedules = scdRepository.findAll();
+        List<ScdResponseDto> scdResponseDtos = new ArrayList<>();
+        for (Schedule schedule : schedules) {
+            if (schedule.getId().equals(id) && schedule.getPassword().equals(password)) {
+                scdRepository.delete(schedule);
+            } else {
+                scdResponseDtos.add(new ScdResponseDto(schedule));
+            }
+        }
+        return scdResponseDtos;
+    }
 
 }

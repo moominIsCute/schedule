@@ -8,7 +8,7 @@ public class ScdPatchRequestDto {
     private final String name;
     private final String password;
 
-    public ScdPatchRequestDto(String title, String contents, String name, String password) {
+    public ScdPatchRequestDto(String title, String name, String password) {
         this.title = title;
         this.name = name;
         this.password = password;
